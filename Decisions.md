@@ -2,7 +2,7 @@
 
 ## What I built:
 
-I have built a mini LLM Gateway in Python(FastAPI) using OpenAI and Gemini as the two LLM providers and SQLite as the lightweight db. Instead of exposing provider keys directly to the end user, it gives caller a gateway API key through which they can access the models. It also limits token use per gateway api key and records both successful and failed requests in SQLite. I have also designed to include automatic fallback mechanism to shift to different model when the main model returns an error while processing request. I have chosen the gateway to return only non-streaming completions so that it is easier to account for token usage against each gateway key. 
+I have built a mini LLM Gateway in Python(FastAPI) using OpenAI and Gemini as the two LLM providers and SQLite as the lightweight db. Instead of exposing provider keys directly to the end user, it gives caller a gateway API key through which they can access the models (with each key having a usage limit of 10,00,000 tokens). It also limits token use per gateway api key and records both successful and failed requests in SQLite. I have also designed to include automatic fall-back mechanism to shift to different model when the main model returns an error while processing request. I have chosen the gateway to return only non-streaming completions so that it is easier to account for token usage against each gateway key. 
 
 ## Moving parts and request lifecycle
 
